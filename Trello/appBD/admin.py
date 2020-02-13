@@ -13,3 +13,5 @@ class TarjetaAdmin(admin.ModelAdmin):
 admin.site.register(Tablero,TableroAdmin)
 admin.site.register(Lista,ListaAdmin)
 admin.site.register(Tarjeta,TarjetaAdmin)
+
+# Register your models here.
