@@ -27,7 +27,7 @@ def crearTarjeta(request):
     form = TarjetaForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return redirect('http://127.0.0.1:8000/admin/login/?next=/admin/')
+        return redirect('consultarTarjeta')
     return render(request, template,{'form':form})
 
 def crearLista(request):
@@ -35,7 +35,7 @@ def crearLista(request):
     form = ListaForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return redirect('http://127.0.0.1:8000/admin/login/?next=/admin/')
+        return redirect('consultarLista')
     return render(request, template,{'form':form})
 
 def crearTablero(request):
@@ -43,7 +43,7 @@ def crearTablero(request):
     form = TableroForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return redirect('http://127.0.0.1:8000/admin/login/?next=/admin/')
+        return redirect('consultarTablero')
     return render(request, template,{'form':form})
 
 def consultarTarjeta(request):

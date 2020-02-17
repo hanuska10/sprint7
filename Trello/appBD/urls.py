@@ -2,7 +2,7 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('appBD', views.index, name='index'),
+    path('', views.index, name='index'),
     path('crearTar/',views.crearTarjeta, name='crearTarjeta'),
     path('consulTar/',views.consultarTarjeta, name='consultarTarjeta'),
     path('ediTar/',views.editarTarjeta, name='editarTarjeta'),

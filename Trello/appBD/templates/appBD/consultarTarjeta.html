@@ -1,0 +1,30 @@
+{% extends "appBD/index.html" %}
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Consulta Tarjeta</title>
+  </head>
+  <body>
+    <h1>Consulta Tarjeta</h1>
+    {% block content %}
+      <table class="table">
+        <tr>
+          <th>Nombre</th>
+          <th>Descripción</th>
+          <th>Lista</th>
+          <th>Editar</th>
+        </tr>
+      {% for tarjeta in object_list %}
+        <tr> 
+          <td>{{tarjeta.nombreTarj}}</td>
+          <td>{{tarjeta.descripcion}}</td>
+          <td>{{tarjeta.fkLista}}</td>
+          <td><a href="">Editar</a></td>
+        </tr>
+      {% endfor %}
+      </table>
+    {% endblock %}
+
+  </body>
+</html>
