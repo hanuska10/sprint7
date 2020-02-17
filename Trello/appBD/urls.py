@@ -3,5 +3,13 @@ from . import views
 
 urlpatterns = [
     path('appBD', views.index, name='index'),
-    path('create/',views.crearTarjeta, name='crearTarjeta'),
+    path('crearTar/',views.crearTarjeta, name='crearTarjeta'),
+    path('consulTar/',views.consultarTarjeta, name='consultarTarjeta'),
+    path('ediTar/',views.editarTarjeta, name='editarTarjeta'),
+    path('crearLis/',views.crearLista, name='crearLista'),
+    path('consuLis/',views.consultarLista, name='consultarLista'),
+    path('ediLis/',views.editarLista, name='editarLista'),
+    path('crearTab/',views.crearTablero, name='crearTablero'),
+    path('consulTab/',views.consultarTablero, name='consultarTablero'),
+    path('ediTab/',views.editarTablero, name='editarTablero'),
 ]
