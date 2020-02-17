@@ -1,7 +1,7 @@
 from django.db import models
 
 # Create your models here.
-
+                                                        #creamos las clases "class Tablero"
 class Tablero(models.Model):                           #creamos la aplicación: python manage.py startapp "miapp"    
     nombreTab = models.CharField(max_length = 30)      #creamos el modelo: python manage.py makemigrations "nuestra app"
                                                         #convertir el modelo a código sql: python manage.py slqmigrate miApp 0001
