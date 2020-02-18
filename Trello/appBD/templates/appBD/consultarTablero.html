@@ -9,23 +9,40 @@
 <body>
     <h1>Consulta Tablero</h1>
     {% block content %}
-    <table class="table">
-        <tr>
-            <th>Nombre</th>
-            <th>Editar</th>
-        </tr>
-        {% for tablero in object_list %}
-        <tr>
-            <td>{{tablero.nombreTab}}</td>
 
-            <td><a href="{%  url 'editarTablero' %}">Editar</a></td>
 
-            <td><a href="{% url 'eliminarTablero' tablero.id %}">Eliminar</a></td>
-        </tr>
-        {% endfor %}
-    </table>
+
+    <div class="container">
+        <h2>Card Deck</h2>
+
+        <div class="card-columns">
+            {% for tarjeta in tar %}
+            <div class="card bg-primary">
+                <h6 class="card-title">{{tarjeta.nombreTarj}} </h6>
+                <div class="card-body text-center">
+                    <p class="card-text">{{tarjeta.descripcion}}</p>
+                </div>
+            </div>
+            {% endfor %}
+            <div class="card bg-warning">
+                <div class="card-body text-center">
+                    <p class="card-text"></p>
+                </div>
+            </div>
+            <div class="card bg-success">
+                <div class="card-body text-center">
+                    <p class="card-text"></p>
+                </div>
+            </div>
+            <div class="card bg-danger">
+                <div class="card-body text-center">
+                    <p class="card-text"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     {% endblock %}
-
 </body>
 
 </html>

@@ -9,7 +9,6 @@ urlpatterns = [
     path ('elimTarj/<int:id>', views.eliminarTarjeta, name='eliminarTarjeta'),
 
     path('crearLis/',views.crearLista, name='crearLista'),
-    path('consuLis/',views.consultarLista, name='consultarLista'),
     path('ediLis/',views.editarLista, name='editarLista'),
     path ('elimList/<int:id>', views.eliminarLista, name='eliminarLista'),
 
