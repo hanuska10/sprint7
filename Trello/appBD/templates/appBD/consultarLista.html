@@ -1,28 +1,31 @@
-{% extends "appBD/index.html" %}
-{% load static %}
+{% extends "appBD/index.html" %} {% load static %}
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <title>Consulta Lista</title>
-  </head>
-  <body>
+</head>
+
+<body>
     <h1>Consulta Lista</h1>
     {% block content %}
-      <table class="table">
+    <table class="table">
         <tr>
-          <th>Nombre</th>
-          <th>Tablero</th>
-          <th>Editar</th>
+            <th>Nombre</th>
+            <th>Tablero</th>
+            <th>Editar</th>
         </tr>
-      {% for lista in object_list %}
-        <tr> 
-          <td>{{lista.nombreList}}</td>
-          <td>{{lista.fkTablero}}</td>
-          <td><a href="">Editar</a></td>
+        {% for lista in lis %}
+        <tr>
+            <td>{{lista.nombreList}}</td>
+            <td>{{lista.fkTablero}}</td>
+            <td><a href="{% url 'editarLista' lista.id %}">Editar</a></td>
+            <td><a href="{% url 'eliminarLista' lista.id %}">Eliminar</a></td>
         </tr>
-      {% endfor %}
-      </table>
+        {% endfor %}
+    </table>
     {% endblock %}
 
-  </body>
+</body>
+
 </html>

@@ -1,26 +1,31 @@
-{% extends "appBD/index.html" %}
-{% load static %}
+{% extends "appBD/index.html" %} {% load static %}
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <title>Consulta Tablero</title>
-  </head>
-  <body>
+</head>
+
+<body>
     <h1>Consulta Tablero</h1>
     {% block content %}
-      <table class="table">
+    <table class="table">
         <tr>
-          <th>Nombre</th>
-          <th>Editar</th>
+            <th>Nombre</th>
+            <th>Editar</th>
         </tr>
-      {% for tablero in object_list %}
-        <tr> 
-          <td>{{tablero.nombreTab}}</td>
-          <td><a href="{% 'editarTablero' %}">Editar</a></td>
+        {% for tablero in object_list %}
+        <tr>
+            <td>{{tablero.nombreTab}}</td>
+
+            <td><a href="{%  url 'editarTablero' %}">Editar</a></td>
+
+            <td><a href="{% url 'eliminarTablero' tablero.id %}">Eliminar</a></td>
         </tr>
-      {% endfor %}
-      </table>
+        {% endfor %}
+    </table>
     {% endblock %}
 
-  </body>
+</body>
+
 </html>

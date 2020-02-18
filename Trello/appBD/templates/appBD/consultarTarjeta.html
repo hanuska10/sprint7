@@ -1,30 +1,33 @@
-{% extends "appBD/index.html" %}
-{% load static %}
+{% extends "appBD/index.html" %} {% load static %}
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <title>Consulta Tarjeta</title>
-  </head>
-  <body>
+</head>
+
+<body>
     <h1>Consulta Tarjeta</h1>
     {% block content %}
-      <table class="table">
+    <table class="table">
         <tr>
-          <th>Nombre</th>
-          <th>Descripción</th>
-          <th>Lista</th>
-          <th>Editar</th>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Lista</th>
+            <th>Editar</th>
         </tr>
-      {% for tarjeta in object_list %}
-        <tr> 
-          <td>{{tarjeta.nombreTarj}}</td>
-          <td>{{tarjeta.descripcion}}</td>
-          <td>{{tarjeta.fkLista}}</td>
-          <td><a href="">Editar</a></td>
+        {% for tarjeta in object_list %}
+        <tr>
+            <td>{{tarjeta.nombreTarj}}</td>
+            <td>{{tarjeta.descripcion}}</td>
+            <td>{{tarjeta.fkLista}}</td>
+            <td><a href="">Editar</a></td>
+            <td><a href="{% url 'eliminarTarjeta' tarjeta.id %}">Eliminar</a></td>
         </tr>
-      {% endfor %}
-      </table>
+        {% endfor %}
+    </table>
     {% endblock %}
 
-  </body>
+</body>
+
 </html>
