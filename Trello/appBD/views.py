@@ -50,10 +50,10 @@ def crearTablero(request):
 def consultarTablero(request):
     template = 'appBD/consultarTablero.html'
     listadotablero = Tablero.objects.all()
-    listadolista = Lista.objects.all()
+    listadolista = Lista.objects.filter(fkTablero=1)
     listadotarjeta = Tarjeta.objects.all()
+
     contexto = {'tab':listadotablero, 'lis':listadolista, 'tar':listadotarjeta}
-    contexto['object_list'] = listadotablero
     return render (request, template, contexto)
 
 def editarTarjeta(request, id):

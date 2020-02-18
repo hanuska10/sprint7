@@ -21,11 +21,20 @@
                 </div>
             </div>
             {% endfor %}
+            {% for lista in lis %}
             <div class="card bg-warning">
-                <div class="card-body text-center">
-                    <p class="card-text"></p>
-                </div>
+                <h6 class="card-title">{{lista.nombreList}} </h6>
+                {% for tarjeta in tar %}
+                {{lista.id}} - {{tarjeta.fklista}}
+                  {% if lista.id == tarjeta.fkLista %}
+                  <div class="card-body text-center" style="border: 1px solid black">
+                      {{tarjeta.nombreTarj}}
+                      <p class="card-text">{{tarjeta.descripcion}}</p>
+                  </div>
+                  {% endif %}
+                {% endfor %}
             </div>
+            {% endfor %}
             <div class="card bg-success">
                 <div class="card-body text-center">
                     <p class="card-text"></p>
