@@ -47,7 +47,7 @@ def crearTablero(request):
     return render(request, template,{'form':form})
     
 
-def consultarTablero(request):
+def consultarTrello(request):
     template = 'appBD/consultarTablero.html'
     listadotablero = Tablero.objects.all()
     listadolista = Lista.objects.all()
