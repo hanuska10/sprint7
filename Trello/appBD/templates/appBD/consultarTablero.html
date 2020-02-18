@@ -1,27 +1,26 @@
-{% extends "appBD/index.html" %}
-{% load static %}
+{% extends "appBD/index.html" %} {% load static %}
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <title>Consulta Tablero</title>
-  </head>
-  <body>
+</head>
+
+<body>
     <h1>Consulta Tablero</h1>
     {% block content %}
-    
-    
 
  <div class="container">
 
         <div class="card-columns">
-          {% for tarjeta in tar %}
-            <div class="card bg-primary"> 
+            {% for tarjeta in tar %}
+            <div class="card bg-primary">
                 <h6 class="card-title">{{tarjeta.nombreTarj}} </h6>
-                <div class="card-body text-center">            
+                <div class="card-body text-center">
                     <p class="card-text">{{tarjeta.descripcion}}</p>
                 </div>
             </div>
-          {% endfor %}
+            {% endfor %}
             <div class="card bg-warning">
                 <div class="card-body text-center">
                     <p class="card-text"></p>
@@ -41,5 +40,6 @@
     </div>
 
     {% endblock %}
-  </body>
+</body>
+
 </html>
