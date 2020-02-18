@@ -1,0 +1,10 @@
+{% extends "appBD/index.html" %} {% block content %}
+
+
+<form method="post"> {% csrf_token %} Estás seguro que desea eliminar?? {{li.nombreList}}
+
+
+    <input type="submit" value="eliminar">
+</form>
+
+{% endblock %}

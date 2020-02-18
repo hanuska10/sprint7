@@ -72,7 +72,7 @@ def editarLista(request, id):
     if form.is_valid():
         form.save()
         return redirect('consultarLista')
-    return render(request,template,{'form':form})
+    return render(request,template,{'lis':form})
 
 def editarTablero(request, id):
     template = 'appBD/editarTablero.html'
@@ -82,3 +82,29 @@ def editarTablero(request, id):
         form.save()
         return redirect('consultarTablero')
     return render(request,template,{'form':form})
+
+
+def eliminarLista(request, id):
+    plantilla = 'appBD/eliminarLista.html'
+    idLista = get_object_or_404(Lista, pk=id)
+    if request.method =="POST":
+        idLista.delete()
+        return redirect ('consultarLista')
+    return render(request, plantilla, {'li':idLista}) 
+
+def eliminarTablero(request, id):
+    plantilla = 'appBD/eliminarTablero.html'
+    idTab = get_object_or_404(Tablero, pk=id)
+    if request.method =="POST":
+        idTab.delete()
+        return redirect ('consultarTablero')
+    return render(request, plantilla, {'tab':idTab})   
+
+def eliminarTarjeta(request, id):
+    plantilla = 'appBD/eliminarTarjeta.html'
+    idtarj = get_object_or_404(Tarjeta, pk=id)
+    if request.method =="POST":
+        idtarj.delete()
+        return redirect ('consultarTarjeta')
+    return render(request, plantilla, {'tarj':idtarj})       
+
