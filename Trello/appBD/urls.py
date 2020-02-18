@@ -4,7 +4,6 @@ from . import views
 urlpatterns = [
     path('', views.index, name='index'),
     path('crearTar/',views.crearTarjeta, name='crearTarjeta'),
-    path('consulTar/',views.consultarTarjeta, name='consultarTarjeta'),    
     path('ediTar/',views.editarTarjeta, name='editarTarjeta'),
     path ('elimTarj/<int:id>', views.eliminarTarjeta, name='eliminarTarjeta'),
 
