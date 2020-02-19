@@ -55,7 +55,7 @@ def consultarTablero(request):
     contexto = {'tabl':listadotablero, 'list':listadolista, 'tarj':listadotarjeta}
     return render (request, template, contexto)
 
-def consultarTableros(request):
+def consultarTableroExper(request):
     template = 'appBD/consultarTablero.html'
     listadotablero = Tablero.objects.all()
     listadolista = Lista.objects.filter(fkTablero=1)
