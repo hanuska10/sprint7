@@ -52,8 +52,17 @@ def consultarTrello(request):
     listadotablero = Tablero.objects.all()
     listadolista = Lista.objects.all()
     listadotarjeta = Tarjeta.objects.all()
+
+    contexto = {'tabl':listadotablero, 'list':listadolista, 'tarj':listadotarjeta}
+    return render (request, template, contexto)
+
+def consultarTableros(request):
+    template = 'appBD/consultarTablero.html'
+    listadotablero = Tablero.objects.all()
+    listadolista = Lista.objects.filter(fkTablero=1)
+    listadotarjeta = Tarjeta.objects.all()
+
     contexto = {'tab':listadotablero, 'lis':listadolista, 'tar':listadotarjeta}
-    contexto['object_list'] = listadotablero
     return render (request, template, contexto)
 
 def editarTarjeta(request, id):
