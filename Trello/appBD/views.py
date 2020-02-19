@@ -46,8 +46,16 @@ def crearTablero(request):
         return redirect('consultarTablero')
     return render(request, template,{'form':form})
     
-
 def consultarTablero(request):
+    template = 'appBD/consultarTablero.html'
+    listadotablero = Tablero.objects.all()
+    listadolista = Lista.objects.all()
+    listadotarjeta = Tarjeta.objects.all()
+
+    contexto = {'tabl':listadotablero, 'list':listadolista, 'tarj':listadotarjeta}
+    return render (request, template, contexto)
+
+def consultarTableros(request):
     template = 'appBD/consultarTablero.html'
     listadotablero = Tablero.objects.all()
     listadolista = Lista.objects.filter(fkTablero=1)
