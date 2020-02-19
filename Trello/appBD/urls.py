@@ -11,12 +11,11 @@ urlpatterns = [
     path('ediLis/',views.editarLista, name='editarLista'),
     path ('elimList/<int:id>', views.eliminarLista, name='eliminarLista'),
 
-    path('crearTab/',views.crearTablero, name='crearTablero'),
-    path('consultarTodo/',views.consultarTrello, name='consultarTrello'),
+    path('crearTab/',views.crearTablero, name='crearTablero'),    
     path('ediTab/',views.editarTablero, name='editarTablero'),      
     path ('elimTab/<int:id>', views.eliminarTablero, name='eliminarTablero'),    
     
-
+    path('consultarTodo/',views.consultarTrello, name='consultarTrello'),
 
     
 ]
