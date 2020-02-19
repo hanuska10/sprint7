@@ -1,0 +1,14 @@
+{% extends "appBD/index.html" %} {% block content %}
+
+<table class="table">
+    {% for lista in lis %}
+    <h1>Consulta Lista</h1>
+    <tr>
+        <td>{{lista.nombreList}}</td>
+        <td>{{lista.fkTablero}}</td>
+        <td><a href="{% url 'eliminarLista' lista.id %}">Eliminar</a></td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}
