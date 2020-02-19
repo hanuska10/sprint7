@@ -16,6 +16,7 @@ urlpatterns = [
     path ('elimTab/<int:id>', views.eliminarTablero, name='eliminarTablero'),    
     
     path('consulTab/',views.consultarTablero, name='consultarTablero'),
+    path('consulTabEx/',views.consultarTableroExper, name='consultarTablero'),
 
     
 ]

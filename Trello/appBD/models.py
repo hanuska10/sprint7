@@ -12,7 +12,7 @@ class Tablero(models.Model):                           #creamos la aplicación: 
 
 class Lista(models.Model):
     nombreList = models.CharField(max_length = 30)
-    fkTablero = models.ForeignKey(Tablero, on_delete=models.CASCADE)
+    fkTablero = models.ForeignKey(Tablero, on_delete=models.CASCADE, related_name="listas")
 
     def __str__(self):
         return self.nombreList
@@ -21,7 +21,7 @@ class Lista(models.Model):
 class Tarjeta(models.Model):
     nombreTarj = models.CharField(max_length = 30)
     descripcion = models.CharField(max_length = 300)
-    fkLista = models.ForeignKey(Lista, on_delete=models.CASCADE)
+    fkLista = models.ForeignKey(Lista, on_delete=models.CASCADE, related_name="tarjetas")
 
     def __str__(self):
         return self.nombreTarj    
