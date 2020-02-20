@@ -13,28 +13,22 @@
  <div class="container">
 
         <div class="card-columns">
-            {% for tarjeta in tar %}
+        {% for lista in todo.listas.all %}
+esti es una lista
+            {% for tarjeta in lista.tarjetas.all %}
             <div class="card bg-primary">
                 <h6 class="card-title">{{tarjeta.nombreTarj}} </h6>
                 <div class="card-body text-center">
-                    <p class="card-text">{{tarjeta.descripcion}}</p>
+                    <p class="card-text" style="border: 1px solid black">{{tarjeta.descripcion}}</p>
+                    <a href="{% url 'editarTarjeta' tarjeta.id %}" class="btn btn-primary">Editar</a>
+                    <a href="{% url 'eliminarTarjeta' tarjeta.id %}" class="btn btn-danger">Eliminar</a>
                 </div>
             </div>
             {% endfor %}
-            {% for lista in lis %}
-            <div class="card bg-warning">
-                <h6 class="card-title">{{lista.nombreList}} </h6>
-                {% for tarjeta in tar %}
-                {{lista.id}} - {{tarjeta.fklista}}
-                  {% if lista.id == tarjeta.fkLista %}
-                  <div class="card-body text-center" style="border: 1px solid black">
-                      {{tarjeta.nombreTarj}}
-                      <p class="card-text">{{tarjeta.descripcion}}</p>
-                  </div>
-                  {% endif %}
-                {% endfor %}
-            </div>
-            {% endfor %}
+        {% endfor %}
+          
+            
+           
 
 
 
@@ -45,24 +39,7 @@
 
 
             
-            Listas
-            {% for listita in list %}
-            <div class="card bg-success">
-                <h6 class="card-title">{{listita.nombreList}} </h6>
-                <div class="card-body text-center">
-                    <p class="card-text"></p>
-                </div>
-            </div>
-            {% endfor %}
-            {% for tarjetita in tarj %}
-            <div class="card bg-danger">{{tarjetita.nombreTarj}}
-                <div class="card-body text-center" style="border: 1px solid black">
-                    <p class="card-text">{{tarjetita.descripcion}}</p>
-                </div>
-            </div>
-            {% endfor %}
-        </div>
-    </div>
+            
 
     {% endblock %}
 </body>

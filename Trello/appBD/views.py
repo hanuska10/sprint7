@@ -27,7 +27,7 @@ def crearTarjeta(request):
     form = TarjetaForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return redirect('consultarTarjeta')
+        return redirect('consultarTablero')
     return render(request, template,{'form':form})
 
 def crearLista(request):
@@ -35,7 +35,7 @@ def crearLista(request):
     form = ListaForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return redirect('consultarLista')
+        return redirect('consultarTablero')
     return render(request, template,{'form':form})
 
 def crearTablero(request):
@@ -49,11 +49,11 @@ def crearTablero(request):
 
 def consultarTablero(request):
     template = 'appBD/consultarTablero.html'
-    listadotablero = Tablero.objects.all()
-    listadolista = Lista.objects.all()
-    listadotarjeta = Tarjeta.objects.all()
+    
+    todo = Tablero.objects.prefetch_related('listas__tarjetas')
+    casa = get_object_or_404(todo,pk=1)
 
-    contexto = {'tabl':listadotablero, 'list':listadolista, 'tarj':listadotarjeta}
+    contexto = {'todo':casa}
     return render (request, template, contexto)
 
 def consultarTableroExper(request):
@@ -66,12 +66,12 @@ def consultarTableroExper(request):
     return render (request, template, contexto)
 
 def editarTarjeta(request, id):
-    template = 'appBD/editarTarjeta.html'
+    template = 'appBD/crearTarjeta.html'
     info_tarjeta = get_object_or_404(Tarjeta,pk=id)
     form = TarjetaForm(request.POST or None, instance= info_tarjeta )
     if form.is_valid():
         form.save()
-        return redirect('consultarTarjeta')
+        return redirect('consultarTablero')
     return render(request,template,{'form':form})
 
 def editarLista(request, id):
@@ -80,7 +80,7 @@ def editarLista(request, id):
     form = ListaForm(request.POST or None, instance= info_lista )
     if form.is_valid():
         form.save()
-        return redirect('consultarLista')
+        return redirect('consultarTablero')
     return render(request,template,{'lis':form})
 
 def editarTablero(request, id):
@@ -98,7 +98,7 @@ def eliminarLista(request, id):
     idLista = get_object_or_404(Lista, pk=id)
     if request.method =="POST":
         idLista.delete()
-        return redirect ('consultarLista')
+        return redirect ('consultarTablero')
     return render(request, plantilla, {'li':idLista}) 
 
 def eliminarTablero(request, id):
@@ -114,6 +114,6 @@ def eliminarTarjeta(request, id):
     idtarj = get_object_or_404(Tarjeta, pk=id)
     if request.method =="POST":
         idtarj.delete()
-        return redirect ('consultarTarjeta')
+        return redirect ('consultarTablero')
     return render(request, plantilla, {'tarj':idtarj})       
 
