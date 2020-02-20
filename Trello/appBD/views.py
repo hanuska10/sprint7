@@ -75,13 +75,13 @@ def editarTarjeta(request, id):
     return render(request,template,{'form':form})
 
 def editarLista(request, id):
-    template = 'appBD/editarLista.html'
+    template = 'appBD/crearLista.html'
     info_lista = get_object_or_404(Lista,pk=id)
     form = ListaForm(request.POST or None, instance= info_lista )
     if form.is_valid():
         form.save()
         return redirect('consultarTablero')
-    return render(request,template,{'lis':form})
+    return render(request,template,{'form':form})
 
 def editarTablero(request, id):
     template = 'appBD/editarTablero.html'
